@@ -64,7 +64,7 @@ define users::setup($hash) {
               hash => $key_hash,
               user => $name,
               h_key => $_sshkeys,
-              before => File["$home/.ssh/authorized_keys"],
+              require => File["$home/.ssh/authorized_keys"],
             }
           } else {
             notify { "ssh keys array should contain hash form": }
